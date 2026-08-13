@@ -1,0 +1,9 @@
+MORGAN LEE
+Data Scientist
+
+SKILLS
+Python, Machine Learning, NLP, TensorFlow, PyTorch, Scikit-learn, PostgreSQL, Docker
+
+EXPERIENCE
+Developed an NLP classifier in Python using TensorFlow and evaluated it with reproducible experiments.
+Presented model findings to stakeholders and collaborated with analysts to prioritize experiments.

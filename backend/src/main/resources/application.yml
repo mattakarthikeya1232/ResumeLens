@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: resumelens-api
+  servlet:
+    multipart:
+      max-file-size: ${RESUMELENS_MAX_FILE_SIZE:8MB}
+      max-request-size: ${RESUMELENS_MAX_FILE_SIZE:8MB}
+server:
+  port: ${RESUMELENS_PORT:8080}
+  error:
+    include-message: never
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+resumelens:
+  max-file-bytes: ${RESUMELENS_MAX_FILE_BYTES:8388608}
+  classification-threshold: ${RESUMELENS_CLASSIFICATION_THRESHOLD:0.62}
+  rate-limit-per-minute: ${RESUMELENS_RATE_LIMIT_PER_MINUTE:20}
+  embedding:
+    model-path: ${RESUMELENS_ONNX_MODEL_PATH:}
+    vocab-path: ${RESUMELENS_ONNX_VOCAB_PATH:}
+    model-name: ${RESUMELENS_EMBEDDING_MODEL:all-MiniLM-L6-v2}
+  llm:
+    enabled: ${RESUMELENS_LLM_ENABLED:false}
+    command: ${RESUMELENS_LLM_COMMAND:}
+    model-name: ${RESUMELENS_LLM_MODEL:Qwen3-0.6B Q4}

@@ -1,0 +1,15 @@
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
+import { api } from '@/services/api'
+import type { Diagnostics } from '@/types/analysis'
+import { BrainCircuit, Cpu, Gauge } from 'lucide-react'
+import { type ReactNode, useEffect, useState } from 'react'
+
+export function ModelsPage() {
+  const [data, setData] = useState<Diagnostics | null>(null); const [error, setError] = useState<string | null>(null)
+  useEffect(() => { api.diagnostics().then(setData).catch(reason => setError(reason instanceof Error ? reason.message : 'Unable to read diagnostics.')) }, [])
+  return <div className="space-y-6"><div><p className="text-sm font-medium text-muted-foreground">Resource-aware inference</p><h1 className="mt-1 text-3xl font-semibold tracking-tight">Models & diagnostics</h1><p className="mt-2 text-muted-foreground">Live values are reported by the running Java process, not prefilled demo data.</p></div>{error ? <p className="rounded-lg border border-destructive/30 p-4 text-sm text-destructive">{error}</p> : !data ? <div className="grid gap-6 md:grid-cols-2"><Skeleton className="h-64" /><Skeleton className="h-64" /></div> : <div className="grid gap-6 md:grid-cols-2"><ModelCard icon={<BrainCircuit />} label="Embedding classifier" name={data.embeddingModel} status={data.embeddingStatus} memory="Model assets are loaded only when configured." /><ModelCard icon={<Cpu />} label="Local language model" name={data.llmModel} status={data.llmStatus} memory="Fallback explanation remains available without it." /><Card className="md:col-span-2"><CardHeader><CardTitle className="flex items-center gap-2"><Gauge className="size-4" />Runtime envelope</CardTitle><CardDescription>Current JVM values make memory use inspectable on machines under the 8 GB target.</CardDescription></CardHeader><CardContent className="grid gap-4 sm:grid-cols-3"><Data label="Current heap" value={`${data.usedHeapMb} MB`} /><Data label="Maximum heap" value={`${data.maxHeapMb} MB`} /><Data label="Reported peak" value={`${data.peakMemoryMb} MB`} /></CardContent></Card></div>}</div>
+}
+function ModelCard({ icon, label, name, status, memory }: { icon: ReactNode; label: string; name: string; status: string; memory: string }) { const ready = status.startsWith('Available'); return <Card><CardHeader><span className="text-muted-foreground">{icon}</span><div className="flex items-center justify-between gap-3"><CardTitle>{label}</CardTitle><Badge variant={ready ? 'default' : 'secondary'}>{ready ? 'Available' : 'Fallback'}</Badge></div><CardDescription>{name}</CardDescription></CardHeader><CardContent className="space-y-3"><p className="rounded-lg border bg-muted/20 p-3 text-sm leading-6">{status}</p><p className="text-xs leading-5 text-muted-foreground">{memory}</p></CardContent></Card> }
+function Data({ label, value }: { label: string; value: string }) { return <div className="rounded-lg border p-4"><p className="text-sm text-muted-foreground">{label}</p><p className="mt-1 text-2xl font-semibold">{value}</p></div> }

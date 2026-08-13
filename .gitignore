@@ -1,0 +1,71 @@
+frontend/node_modules/
+frontend/dist/
+backend/target/
+.env
+*.onnx
+models/*.gguf
+# ==============================
+# macOS
+# ==============================
+.DS_Store
+
+# ==============================
+# IDE
+# ==============================
+.idea/
+.vscode/
+*.iml
+
+# ==============================
+# Node / Frontend
+# ==============================
+node_modules/
+dist/
+build/
+.vite/
+.npm/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==============================
+# Java / Maven
+# ==============================
+target/
+*.class
+*.jar
+
+# ==============================
+# Spring Boot
+# ==============================
+application-local.yml
+application-local.yaml
+application-local.properties
+
+# ==============================
+# Logs
+# ==============================
+logs/
+*.log
+
+# ==============================
+# Temporary files
+# ==============================
+tmp/
+temp/
+
+# ==============================
+# ML / LLM runtime files
+# ==============================
+*.gguf
+*.onnx
+*.bin
+*.safetensors
+
+# Model caches
+models/cache/

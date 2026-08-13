@@ -1,0 +1,12 @@
+# Copy values into environment variables or an uncommitted application-local.yml.
+resumelens:
+  max-file-bytes: 8388608
+  classification-threshold: 0.62
+  rate-limit-per-minute: 20
+  embedding:
+    model-path: /absolute/path/to/all-MiniLM-L6-v2.onnx
+    vocab-path: /absolute/path/to/vocab.txt
+  llm:
+    enabled: false
+    # A local, trusted command that reads a grounded prompt on stdin and emits text on stdout.
+    command: /absolute/path/to/local-llm-adapter

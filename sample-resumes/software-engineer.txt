@@ -1,0 +1,15 @@
+AVA PATEL
+Software Engineer
+
+SUMMARY
+Java developer focused on reliable backend systems and collaborative delivery.
+
+SKILLS
+Java, Spring Boot, React, TypeScript, PostgreSQL, Docker, AWS, GitHub Actions
+
+EXPERIENCE
+Developed Spring Boot services using Java and PostgreSQL. Deployed Docker workloads to AWS and improved API response time by 28%.
+Collaborated with product and QA teams to plan releases and present technical trade-offs.
+
+PROJECTS
+Built a React dashboard with TypeScript and integrated a secure REST API.

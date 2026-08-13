@@ -1,0 +1,11 @@
+SAMIRA DAS
+Product Engineering Intern
+
+TECHNICAL SKILLS
+Java, Kotlin, Android, Firebase, Git, CI/CD
+
+PROJECTS
+Developed an Android application using Kotlin and Firebase. Implemented CI/CD checks with GitHub Actions.
+
+EXPERIENCE
+Led a five-member hackathon team, presented the product demo, and collaborated with designers to solve usability issues.

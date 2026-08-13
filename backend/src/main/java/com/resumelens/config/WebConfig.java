@@ -13,6 +13,8 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins(
                         "http://localhost:5173",
                         "https://resume-lens-omega.vercel.app/"
+                        "https://resume-lens-omega.vercel.app/"
+                        "https://resume-lens-omega.vercel.app/"
                 )
                 .allowedMethods("GET", "POST", "DELETE", "OPTIONS")
                 .allowedHeaders("Content-Type")

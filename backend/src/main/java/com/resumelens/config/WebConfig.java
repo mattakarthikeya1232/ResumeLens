@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins(
                         "http://localhost:5173",
-                        "https://resume-lens-48wp45hpk-mattakarthikeya123-5276s-projects.vercel.app/"
+                        "https://resume-lens-omega.vercel.app/"
                 )
                 .allowedMethods("GET", "POST", "DELETE", "OPTIONS")
                 .allowedHeaders("Content-Type")
